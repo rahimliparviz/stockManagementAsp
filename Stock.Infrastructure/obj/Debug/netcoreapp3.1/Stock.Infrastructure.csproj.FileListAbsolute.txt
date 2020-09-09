@@ -1,0 +1,9 @@
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\bin\Debug\netcoreapp3.1\Stock.Infrastructure.deps.json
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\bin\Debug\netcoreapp3.1\Stock.Infrastructure.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\bin\Debug\netcoreapp3.1\Stock.Infrastructure.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.AssemblyInfo.cs
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.pdb

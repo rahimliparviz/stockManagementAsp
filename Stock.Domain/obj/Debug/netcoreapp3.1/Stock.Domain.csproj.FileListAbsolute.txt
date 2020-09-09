@@ -1,0 +1,9 @@
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\bin\Debug\netcoreapp3.1\Stock.Domain.deps.json
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\bin\Debug\netcoreapp3.1\Stock.Domain.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\bin\Debug\netcoreapp3.1\Stock.Domain.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.AssemblyInfoInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.AssemblyInfo.cs
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Domain\obj\Debug\netcoreapp3.1\Stock.Domain.csprojAssemblyReference.cache

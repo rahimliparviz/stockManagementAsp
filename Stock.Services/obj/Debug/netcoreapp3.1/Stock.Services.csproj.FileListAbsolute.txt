@@ -1,0 +1,16 @@
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Services.deps.json
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Services.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Services.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.csprojAssemblyReference.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.AssemblyInfoInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.AssemblyInfo.cs
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.csproj.CoreCompileInputs.cache
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Domain.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Domain.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\obj\Debug\netcoreapp3.1\Stock.Services.csproj.CopyComplete
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Data.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Data.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Infrastructure.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Services\bin\Debug\netcoreapp3.1\Stock.Infrastructure.pdb
