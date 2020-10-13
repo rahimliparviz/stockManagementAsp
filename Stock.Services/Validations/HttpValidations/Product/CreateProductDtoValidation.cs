@@ -3,7 +3,7 @@ using Stock.Services.DTO;
 
 namespace Stock.Services.HttpValidations.Product
 {
-    public class ProductDtoValidation:AbstractValidator<ProductDto>
+    public class ProductDtoValidation:AbstractValidator<CreateProductDto>
     {
         public ProductDtoValidation()
         {
@@ -11,15 +11,20 @@ namespace Stock.Services.HttpValidations.Product
                 .NotEmpty();
             RuleFor(p => p.Code)
                 .NotEmpty();
+            RuleFor(p => p.BuyingPrice)
+                .NotEmpty()
+                // .EmailAddress()
+                ;
+            RuleFor(p => p.SelingPrice)
+                .NotEmpty().NotNull()
+                // .EmailAddress()
+                ;
             RuleFor(p => p.CategoryId)
                 .NotEmpty();
             RuleFor(p => p.SupplierId)
-                .NotEmpty();
-            RuleFor(p => p.BuyingPrice)
-                .NotEmpty();
-            RuleFor(p => p.SelingPrice)
                 .NotEmpty()
-                ;
+                .NotNull();
+       
             RuleFor(p => p.BuyingDate)
                 .NotEmpty();
             RuleFor(p => p.Quantity)

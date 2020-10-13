@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Stock.Services.Repositories.Abstract
 {
@@ -8,8 +9,8 @@ namespace Stock.Services.Repositories.Abstract
         List<TReturnEntityDto> GetAll();
         TReturnEntityDto GetById(Guid id);
    
-        Response<TReturnEntityDto> Create(TEntityDto entityDto);
-        Response<TReturnEntityDto> Update(Guid id,TEntityDto entityDto);
+        Task<Response<TReturnEntityDto>> Create(TEntityDto entityDto);
+        Task<Response<TReturnEntityDto>> Update(Guid id,TEntityDto entityDto);
         Response<TReturnEntityDto> Delete(Guid id);  
     }
 }

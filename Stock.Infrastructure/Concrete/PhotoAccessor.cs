@@ -20,8 +20,9 @@ namespace Stock.Infrastructure.Concrete
             {
                 Directory.CreateDirectory(_env.WebRootPath + "\\"+folderName+"\\");
             }
-            string path = _env.WebRootPath+"\\"+folderName+"\\" + Guid.NewGuid().ToString() +file.FileName;
-            using (var fileStream = new FileStream( path,FileMode.Create))
+            // string path = _env.WebRootPath+"\\"+folderName+"\\" + Guid.NewGuid().ToString() +file.FileName;
+            string path = folderName+"\\" + Guid.NewGuid().ToString() +file.FileName;
+            using (var fileStream = new FileStream( _env.WebRootPath+"\\"+path,FileMode.Create))
             {
                 file.CopyTo(fileStream);
             }
@@ -29,8 +30,9 @@ namespace Stock.Infrastructure.Concrete
             return path;
         }
 
-        public void Delete(string filePath)
+        public void Delete(string path)
         {
+            string filePath = _env.WebRootPath + "\\" + path;
             if ((System.IO.File.Exists(filePath)))
             {
                 System.IO.File.Delete(filePath);

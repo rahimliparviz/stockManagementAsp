@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
+    "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
     "projectName": "Stock.Infrastructure",
-    "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
-    "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\obj\\",
+    "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
+    "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -15,7 +15,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
@@ -26,6 +30,20 @@
   },
   "frameworks": {
     "netcoreapp3.1": {
+      "dependencies": {
+        "Microsoft.IdentityModel.JsonWebTokens": {
+          "target": "Package",
+          "version": "[5.5.0, )"
+        },
+        "Microsoft.IdentityModel.Tokens": {
+          "target": "Package",
+          "version": "[5.5.0, )"
+        },
+        "System.IdentityModel.Tokens.Jwt": {
+          "target": "Package",
+          "version": "[5.5.0, )"
+        }
+      },
       "imports": [
         "net461",
         "net462",

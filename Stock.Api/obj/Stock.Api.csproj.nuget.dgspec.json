@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj": {}
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
         "projectName": "Stock.Api",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,14 +27,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
               },
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
               },
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj"
               }
             }
           }
@@ -48,15 +48,27 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[3.1.8, )"
             }
           },
           "imports": [
@@ -81,14 +93,14 @@
         }
       }
     },
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
         "projectName": "Stock.Data",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -104,8 +116,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
               }
             }
           }
@@ -155,14 +167,14 @@
         }
       }
     },
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
         "projectName": "Stock.Domain",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -213,14 +225,14 @@
         }
       }
     },
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
         "projectName": "Stock.Infrastructure",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -235,7 +247,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -246,6 +262,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.IdentityModel.JsonWebTokens": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -268,14 +298,14 @@
         }
       }
     },
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj",
         "projectName": "Stock.Services",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -291,14 +321,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
               },
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
               },
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
               }
             }
           }
@@ -332,9 +362,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

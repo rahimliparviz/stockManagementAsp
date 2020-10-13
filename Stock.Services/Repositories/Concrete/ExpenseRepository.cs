@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Stock.Data;
 using Stock.Domain;
@@ -40,10 +41,9 @@ namespace Stock.Services.Repositories.Concrete
             throw new RestException(HttpStatusCode.NotFound, new { Expense = "Not found" });
         }
 
-        public Response<ExpenseDto> Create(ExpenseDto entityDto)
+        public async Task<Response<ExpenseDto>> Create(ExpenseDto entityDto)
         {
-            try
-            {
+          
                 Expense expense = new Expense
                 {
                     Amount = entityDto.Amount,
@@ -51,32 +51,26 @@ namespace Stock.Services.Repositories.Concrete
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
-                _context.Expenses.Add(expense);
-                _context.SaveChanges();
+                 _context.Expenses.Add(expense);
+                var success = await _context.SaveChangesAsync() > 0;
 
-                return new Response<ExpenseDto>
+                if (success)
                 {
-                    Data = entityDto,
-                    Message = "Expense saved",
-                    Time = DateTime.Now,
-                    IsSuccess = true
-                };
-            }
-            catch (Exception e)
-            {
-                return new Response<ExpenseDto>
-                {
-                    Data = null,
-                    Message = e.StackTrace,
-                    Time = DateTime.Now,
-                    IsSuccess = false
-                };
-            }
+                    return new Response<ExpenseDto>
+                    {
+                        Data = entityDto,
+                        Message = "Expense saved",
+                        Time = DateTime.Now,
+                        IsSuccess = true
+                    };
+                }
+
+                throw new Exception("Problem on saving expense");
         }
 
-        public Response<ExpenseDto> Update(Guid id, ExpenseDto entityDto)
+        public async Task<Response<ExpenseDto>> Update(Guid id, ExpenseDto entityDto)
         {
-            Expense expense = _context.Expenses.Find(id);
+            Expense expense = await _context.Expenses.FindAsync(id);
             
             if (expense == null)
             {
@@ -88,7 +82,7 @@ namespace Stock.Services.Repositories.Concrete
             expense.Details = entityDto.Details;
             expense.UpdatedAt = DateTime.Now;
             
-            var success = _context.SaveChanges() > 0;
+            var success = await _context.SaveChangesAsync() > 0;
             
             if (success)
             {

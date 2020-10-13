@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Stock.Data;
@@ -27,7 +28,8 @@ namespace Stock.Services.Repositories.Concrete
         {
 
             var orders =
-                _context.Orders.Include(c => c.Customer)
+                _context.Orders
+                    .Include(c => c.Customer)
                     .ToList();
                  
             
@@ -39,7 +41,7 @@ namespace Stock.Services.Repositories.Concrete
         {
             var orders =
                 _context.Orders.Include(c => c.Customer)
-                    .Where(o=>o.CreatedAt == orderDate)
+                    .Where(o=>o.CreatedAt.Date == orderDate.Date)
                     .ToList();
             
             return _mapper.Map<List<Order>, List<OrderDto>>(orders);
@@ -59,7 +61,7 @@ namespace Stock.Services.Repositories.Concrete
             return orderDto;
         }
 
-        public Response<OrderDto> Create(CreateOrderDto entityDto)
+        public async Task<Response<OrderDto>> Create(CreateOrderDto entityDto)
         {
            var order = new Order()
            {
@@ -70,36 +72,64 @@ namespace Stock.Services.Repositories.Concrete
                Pay = entityDto.Pay,
                Due = entityDto.Due,
                PayBy = entityDto.PayBy,
-               OrderProducts = entityDto.OrderProducts,
                CreatedAt = DateTime.Now,
                UpdatedAt = DateTime.Now
                
            };
 
-           var productIds = entityDto.OrderProducts.Select(p => p.PruductId).ToList();
-           var productsForDecreaseQuantity = _context.Products.Where(p => productIds.Contains(p.Id)).ToList();
+            await _context.Orders.AddAsync(order);
 
+            var productIds = entityDto.orderProducts.Select(p => p.Id).ToList();
+            var products = _context.Products.Where(p => productIds.Contains(p.Id)).ToList();
+            
+            var pr = entityDto.orderProducts.First();
 
-           foreach (var product in productsForDecreaseQuantity)
+            foreach (var product in entityDto.orderProducts)
            {
-               product.Quantity -= 1;
+               OrderProduct orderProduct = new OrderProduct{OrderId = order.Id,PruductId = product.Id};
+               products.First(p => p.Id == product.Id).Quantity = product.Quantity;
+                await _context.OrderPruducts.AddAsync(orderProduct);
            }
 
-           _context.SaveChanges();
-           
-           var orderDto = _mapper.Map<Order, OrderDto>(order);
 
-           return new Response<OrderDto>
+           try
            {
-               Data = orderDto,
-               Message = "Order created",
-               Time = DateTime.Now,
-               IsSuccess = true
-           };
+               var success = await _context.SaveChangesAsync() > 0;
+
+               if (success)
+               {
+
+                   return new Response<OrderDto>
+                   {
+                       Data = null,
+                       Message = "Order created",
+                       Time = DateTime.Now,
+                       IsSuccess = true
+                   };
+
+               }
+           }
+           catch (Exception e)
+           {
+               return new Response<OrderDto>
+               {
+                   Data = null,
+                   Message = e.InnerException.Message,
+                   Time = DateTime.Now,
+                   IsSuccess = false
+               };
+           }
+
+           
+
+           throw new Exception("Problem on saving order");
+           
+           
+           
  
         }
 
-        public Response<OrderDto> Update(Guid id, CreateOrderDto entityDto)
+        public async Task<Response<OrderDto>> Update(Guid id, CreateOrderDto entityDto)
         {
             throw new NotImplementedException();
         }

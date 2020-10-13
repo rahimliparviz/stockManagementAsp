@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Http;
 namespace Stock.Services.DTO
 {
     public class ProductDto
-    {
+    {        
+        public string Id { get; set; }
         public string CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string  Name { get; set; }

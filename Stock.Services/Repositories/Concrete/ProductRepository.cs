@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Stock.Data;
@@ -53,7 +54,7 @@ namespace Stock.Services.Repositories.Concrete
            
         }
 
-        public Response<ProductDto> Create(CreateProductDto entityDto)
+        public async Task<Response<ProductDto>> Create(CreateProductDto entityDto)
         {
             try
             {
@@ -104,8 +105,8 @@ namespace Stock.Services.Repositories.Concrete
                     product.Photo = path;
                 }
                 
-                _context.Products.Add(product);
-                _context.SaveChanges();
+                await _context.Products.AddAsync(product);
+                await _context.SaveChangesAsync();
 
                 var returnEntityDto = _mapper.Map<Product, ProductDto>(product);
                 
@@ -129,24 +130,23 @@ namespace Stock.Services.Repositories.Concrete
             }
         }
 
-        public Response<ProductDto> Update(Guid id, CreateProductDto entityDto)
+        public async Task<Response<ProductDto>> Update(Guid id, CreateProductDto entityDto)
         {
             try
             {
+                Product product = await _context.Products.FindAsync(id);
 
-                Product product = new Product
-                {
-                    Name = entityDto.Name,
-                    Code = entityDto.Code,
-                    CategoryId = Guid.Parse(entityDto.CategoryId),
-                    SupplierId  = Guid.Parse(entityDto.SupplierId),
-                    BuyingDate = entityDto.BuyingDate,
-                    BuyingPrice = entityDto.BuyingPrice,
-                    SelingPrice = entityDto.SelingPrice,
-                    Quantity = entityDto.Quantity,
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
-                };
+                _ = product ?? throw new RestException(HttpStatusCode.BadRequest, new {Product ="Product is not exist." });
+           
+                product.Name = entityDto.Name;
+                product.Code = entityDto.Code;
+                product.CategoryId = Guid.Parse(entityDto.CategoryId);
+                product.SupplierId = Guid.Parse(entityDto.SupplierId);
+                product.BuyingDate = entityDto.BuyingDate;
+                product.BuyingPrice = entityDto.BuyingPrice;
+                product.SelingPrice = entityDto.SelingPrice;
+                product.Quantity = entityDto.Quantity;
+                product.UpdatedAt = DateTime.Now;
 
                 
 
@@ -156,15 +156,14 @@ namespace Stock.Services.Repositories.Concrete
                     product.Photo = path;
                 }
                 
-                _context.Products.Add(product);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 var returnEntityDto = _mapper.Map<Product, ProductDto>(product);
                 
                 return new Response<ProductDto>
                 {
                     Data = returnEntityDto,
-                    Message = $"{product.Name} saved",
+                    Message = $"{product.Name} updated",
                     Time = DateTime.Now,
                     IsSuccess = true
                 };
@@ -213,19 +212,23 @@ namespace Stock.Services.Repositories.Concrete
             throw new Exception("Problem on deleting product");
         }
 
-        public void StockUpdate(int quantity, Guid productId)
+        public Response<ProductDto> StockUpdate(StockProductQuantityDto productQuantity, Guid productId)
         {
             var product = _context.Products.Find(productId);
 
-            if (product == null)
-            {
+            _ = product ??
                 throw new RestException(HttpStatusCode.NotFound, new { Product = "Not found" });
-            }
             
-
-            product.Quantity = quantity;
+            product.Quantity = productQuantity.Quantity;
             _context.SaveChanges();
             
+            return new Response<ProductDto>
+            {
+                Data = null,
+                Message = $"'{product.Name}' quantity changed ",
+                Time = DateTime.Now,
+                IsSuccess = true
+            };
         }
     }
 }

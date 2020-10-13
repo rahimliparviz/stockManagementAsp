@@ -23,7 +23,7 @@ namespace Stock.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromForm]CategoryDto categoryDto)
+        public ActionResult Create([FromBody]CategoryDto categoryDto)
         {
             var result = _repo.Create(categoryDto);
             return Ok(result);
@@ -37,7 +37,7 @@ namespace Stock.Api.Controllers
         }
         
         [HttpPut("{id}")]
-        public ActionResult Edit(Guid id,[FromForm]CategoryDto categoryDto)
+        public ActionResult Edit(Guid id,[FromBody]CategoryDto categoryDto)
         {
             var result = _repo.Update(id,categoryDto);
             return Ok(result);

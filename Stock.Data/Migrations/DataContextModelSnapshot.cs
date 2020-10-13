@@ -16,7 +16,7 @@ namespace Stock.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.6")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -306,12 +306,6 @@ namespace Stock.Data.Migrations
                     b.Property<Guid>("PruductId")
                         .HasColumnType("uuid");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.HasKey("OrderId", "PruductId");
 
                     b.HasIndex("PruductId");
@@ -405,7 +399,7 @@ namespace Stock.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<double>("Amount")
+                    b.Property<double?>("Amount")
                         .HasColumnType("double precision");
 
                     b.Property<DateTime>("CreatedAt")
@@ -423,8 +417,8 @@ namespace Stock.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("integer");
+                    b.Property<string>("Year")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

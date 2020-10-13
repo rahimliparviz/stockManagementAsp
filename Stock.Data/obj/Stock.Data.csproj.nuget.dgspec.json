@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {}
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
         "projectName": "Stock.Data",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
-                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
+              "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+                "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
+    "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
         "projectName": "Stock.Domain",
-        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
+        "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
         "packagesPath": "C:\\Users\\Pronet\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pronet\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,10 +1,12 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stock.Services.DTO;
 using Stock.Services.Repositories.Abstract;
 
 namespace Stock.Api.Controllers
 {
+
     public class CustomersController : BaseController
     {
         private readonly ICustomerRepository _repo;

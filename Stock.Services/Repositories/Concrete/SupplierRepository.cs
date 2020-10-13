@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
 using Stock.Data;
@@ -48,7 +49,7 @@ namespace Stock.Services.Repositories.Concrete
             throw new RestException(HttpStatusCode.NotFound, new { Supplier = "Not found" });
         }
 
-        public Response<SupplierDto> Create(CreateSupplierDto createEntityDto)
+        public async Task<Response<SupplierDto>> Create(CreateSupplierDto createEntityDto)
         {
             try
             {
@@ -69,8 +70,8 @@ namespace Stock.Services.Repositories.Concrete
                     supplier.Photo = path;
                 }
                 
-                _context.Suppliers.Add(supplier);
-                _context.SaveChanges();
+                await _context.Suppliers.AddAsync(supplier);
+                await _context.SaveChangesAsync();
 
                 var returnEntityDto = _mapper.Map<Supplier, SupplierDto>(supplier);
                 
@@ -94,9 +95,9 @@ namespace Stock.Services.Repositories.Concrete
             }
         }
 
-        public Response<SupplierDto> Update(Guid id, CreateSupplierDto entityDto)
+        public async Task<Response<SupplierDto>> Update(Guid id, CreateSupplierDto entityDto)
         {
-            Supplier supplier = _context.Suppliers.Find(id);
+            Supplier supplier = await _context.Suppliers.FindAsync(id);
             
             if (supplier == null)
             {
@@ -124,7 +125,7 @@ namespace Stock.Services.Repositories.Concrete
                 supplier.Photo = path;
             }
             
-            var success = _context.SaveChanges() > 0;
+            var success = await _context.SaveChangesAsync() > 0;
             
             if (success)
             {

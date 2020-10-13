@@ -5,6 +5,6 @@ namespace Stock.Services.Repositories.Abstract
 {
     public interface IProductRepository:IRepository<CreateProductDto,ProductDto>
     {
-        void StockUpdate(int quantity, Guid productId);
+        Response<ProductDto> StockUpdate(StockProductQuantityDto quantity, Guid productId);
     }
 }

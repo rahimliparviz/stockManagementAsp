@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Stock.Services.DTO;
 using Stock.Services.Repositories.Abstract;
@@ -23,9 +24,9 @@ namespace Stock.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromForm]CreateEmployeeDto employeeDto)
+        public async Task<ActionResult> Create([FromForm]CreateEmployeeDto employeeDto)
         {
-            var result = _repo.Create(employeeDto);
+            var result =await  _repo.Create(employeeDto);
             return Ok(result);
         }
         
@@ -37,9 +38,9 @@ namespace Stock.Api.Controllers
         }
         
         [HttpPut("{id}")]
-        public ActionResult Edit(Guid id,[FromForm]CreateEmployeeDto employeeDto)
+        public async Task<ActionResult> Edit(Guid id,[FromForm]CreateEmployeeDto employeeDto)
         {
-            var result = _repo.Update(id,employeeDto);
+            var result =await  _repo.Update(id,employeeDto);
             return Ok(result);
         }
         

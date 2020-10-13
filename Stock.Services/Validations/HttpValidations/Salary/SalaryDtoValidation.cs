@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Stock.Data;
 using Stock.Services.DTO;
+using Stock.Services.Validations.HttpValidations.Extensions;
 
-namespace Stock.Services.HttpValidations.Salary
+namespace Stock.Services.Validations.HttpValidations.Salary
 {
     public class SalaryDtoValidation:AbstractValidator<SalaryDto>
     {
@@ -11,18 +11,18 @@ namespace Stock.Services.HttpValidations.Salary
         {
           
             RuleFor(s => s.Amount)
-                .NotEmpty()
+                .NotNull()
                 .GreaterThan(0);
             RuleFor(s => s.Month)
                 .NotEmpty()
                 .InclusiveBetween(1,12);
             RuleFor(s => s.EmployeeId)
                 .NotEmpty();
-            RuleFor(s => s.SalaryDate)
-                .NotEmpty();
+            // RuleFor(s => s.SalaryDate)
+            //     .NotEmpty().When(c=>!c.IsUpdating);
             RuleFor(s => s.Year)
-                .NotEmpty()
-                .GreaterThan(0)
+                .Year()
+                .When(c=>!c.IsUpdating)
                 ;
         }
     }

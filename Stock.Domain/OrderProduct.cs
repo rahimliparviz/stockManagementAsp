@@ -9,7 +9,6 @@ namespace Stock.Domain
         public Order Order { get; set; }
         public Guid PruductId { get; set; }
         public Product Pruduct { get; set; }
-        public int Quantity { get; set; }
-        public double Price { get; set; }
+    
     }
 }

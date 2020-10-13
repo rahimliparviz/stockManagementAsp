@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Stock.Data;
@@ -26,77 +27,84 @@ namespace Stock.Services.Repositories.Concrete
         public List<SalaryDto> GetAll()
         {
             var salariesByMonth = _context.Salaries
-                .Include(s=>s.Employee.User).ToList();
+                .Select(s => new Salary()
+                    {
+                        Month = s.Month,
+
+                    })
+                    .Distinct()
+                    .ToList();
+                
+                ;
             List<SalaryDto> salaries = _mapper.Map<List<Salary>,List<SalaryDto>>(salariesByMonth);
             return salaries;
         }
 
         public SalaryDto GetById(Guid id)
         {
-            var salary = _context.Salaries.Find(id);
+            var salary = _context.Salaries
+                .Include(s=>s.Employee.User)
+                .First(s=>s.Id == id);
 
-            if (salary != null)
-            {
-                var salaryDto = _mapper.Map<Salary, SalaryDto>(salary);
+            _ = salary ?? throw new RestException(HttpStatusCode.NotFound, new { Salary = "Not found" });
+        
+                return  _mapper.Map<Salary, SalaryDto>(salary);
 
-                return salaryDto;
-            }
-            throw new RestException(HttpStatusCode.NotFound, new { Salary = "Not found" });
+            
         }
 
-        public Response<SalaryDto> Create(SalaryDto entityDto)
+        public async Task<Response<SalaryDto>> Create(SalaryDto entityDto)
         {
             var check = _context.Salaries
                 .Any(s => s.EmployeeId.ToString() == entityDto.EmployeeId &&
                           s.Month == entityDto.Month &&
-                          s.Year == entityDto.Year);
+                          s.Year == entityDto.Year)
+                ;
 
             if (check)
             {
                 throw new RestException(HttpStatusCode.BadRequest, new { Salary = "Salary is already paid" });
 
             }
-            else
-            {
-                try
-                {
-                    Salary salary = new Salary
-                    {
-                        Amount = entityDto.Amount,
-                        Month = entityDto.Month,
-                        Year = entityDto.Year,
-                        EmployeeId= Guid.Parse(entityDto.EmployeeId),
-                        SalaryDate= entityDto.SalaryDate,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now
-                    };
-                    _context.Salaries.Add(salary);
-                    _context.SaveChanges();
 
-                    return new Response<SalaryDto>
-                    {
-                        Data = entityDto,
-                        Message = "Salary saved",
-                        Time = DateTime.Now,
-                        IsSuccess = true
-                    };
-                }
-                catch (Exception e)
+            try
+            {
+                Salary salary = new Salary
                 {
-                    return new Response<SalaryDto>
-                    {
-                        Data = null,
-                        Message = e.StackTrace,
-                        Time = DateTime.Now,
-                        IsSuccess = false
-                    };
-                }
+                    Amount = entityDto.Amount,
+                    Month = entityDto.Month,
+                    Year = entityDto.Year,
+                    EmployeeId= Guid.Parse(entityDto.EmployeeId),
+                    SalaryDate= DateTime.Now,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+                };
+                await _context.Salaries.AddAsync(salary);
+                await _context.SaveChangesAsync();
+
+                return new Response<SalaryDto>
+                {
+                    Data = entityDto,
+                    Message = "Salary saved",
+                    Time = DateTime.Now,
+                    IsSuccess = true
+                };
+            }
+            catch (Exception e)
+            {
+                return new Response<SalaryDto>
+                {
+                    Data = null,
+                    Message = e.StackTrace,
+                    Time = DateTime.Now,
+                    IsSuccess = false
+                };
             }
         }
 
-        public Response<SalaryDto> Update(Guid id, SalaryDto entityDto)
+        public async Task<Response<SalaryDto>> Update(Guid id, SalaryDto entityDto)
         {
-            Salary salary = _context.Salaries.Find(id);
+            Salary salary = await _context.Salaries.FindAsync(id);
             
             if (salary == null)
             {
@@ -105,13 +113,11 @@ namespace Stock.Services.Repositories.Concrete
             }
             
             salary.Month = entityDto.Month;
-            salary.Year = entityDto.Year;
-            salary.Amount = entityDto.Amount;
-            salary.SalaryDate = entityDto.SalaryDate;
+            salary.Amount = (double) entityDto.Amount;
             salary.EmployeeId = Guid.Parse(entityDto.EmployeeId);
             salary.UpdatedAt = DateTime.Now;
             
-            var success = _context.SaveChanges() > 0;
+            var success = await _context.SaveChangesAsync() > 0;
             
             if (success)
             {

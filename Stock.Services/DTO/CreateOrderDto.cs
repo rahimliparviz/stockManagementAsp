@@ -13,7 +13,7 @@ namespace Stock.Services.DTO
         public double Due { get; set; }
         public string PayBy { get; set; }
         
-        public ICollection<OrderProduct> OrderProducts { get; set; }
+        public ICollection<Product> orderProducts { get; set; }
 
     }
 }

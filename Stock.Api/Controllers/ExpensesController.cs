@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Stock.Services.DTO;
 using Stock.Services.Repositories.Abstract;
@@ -22,9 +23,9 @@ namespace Stock.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([FromForm]ExpenseDto expenseDto)
+        public async Task<ActionResult> Create([FromForm]ExpenseDto expenseDto)
         {
-            var result = _repo.Create(expenseDto);
+            var result = await _repo.Create(expenseDto);
             return Ok(result);
         }
         
@@ -36,7 +37,7 @@ namespace Stock.Api.Controllers
         }
         
         [HttpPut("{id}")]
-        public ActionResult Edit(Guid id,[FromForm]ExpenseDto expenseDto)
+        public ActionResult Edit(Guid id,[FromBody]ExpenseDto expenseDto)
         {
             var result = _repo.Update(id,expenseDto);
             return Ok(result);

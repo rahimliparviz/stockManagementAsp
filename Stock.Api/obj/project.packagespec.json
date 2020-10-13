@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
+    "projectUniqueName": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
     "projectName": "Stock.Api",
-    "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
-    "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Api\\obj\\",
+    "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\Stock.Api.csproj",
+    "outputPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Api\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -16,14 +16,14 @@
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
-          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
-            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
+          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj": {
+            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Data\\Stock.Data.csproj"
           },
-          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
-            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
+          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj": {
+            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Infrastructure\\Stock.Infrastructure.csproj"
           },
-          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
-            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Services\\Stock.Services.csproj"
+          "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj": {
+            "projectPath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Services\\Stock.Services.csproj"
           }
         }
       }
@@ -37,15 +37,27 @@
   "frameworks": {
     "netcoreapp3.1": {
       "dependencies": {
+        "Microsoft.AspNetCore.Authentication.JwtBearer": {
+          "target": "Package",
+          "version": "[3.1.8, )"
+        },
+        "Microsoft.AspNetCore.Identity.UI": {
+          "target": "Package",
+          "version": "[3.1.8, )"
+        },
+        "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
         "Microsoft.EntityFrameworkCore": {
           "target": "Package",
-          "version": "[3.1.6, )"
+          "version": "[3.1.8, )"
         },
         "Microsoft.EntityFrameworkCore.Design": {
           "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
           "suppressParent": "All",
           "target": "Package",
-          "version": "[3.1.6, )"
+          "version": "[3.1.8, )"
         }
       },
       "imports": [

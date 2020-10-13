@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Stock.Data;
@@ -43,9 +44,10 @@ namespace Stock.Services.Repositories.Concrete
 
       
 
-        public Response<CategoryDto> Create(CategoryDto entityDto)
-        { ;
-
+        public async Task<Response<CategoryDto>> Create(CategoryDto entityDto)
+        {
+            if(_context.Categories.Where(c => c.Name == entityDto.Name).FirstOrDefault() != null)
+                 throw new RestException(HttpStatusCode.BadRequest,new {Name = "Category with this name is already exist!"});
             try
             {
                 Category category = new Category
@@ -54,8 +56,9 @@ namespace Stock.Services.Repositories.Concrete
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
-                _context.Categories.Add(category);
-                _context.SaveChanges();
+                
+                await _context.Categories.AddAsync(category);
+                await _context.SaveChangesAsync();
 
                 return new Response<CategoryDto>
                 {
@@ -77,16 +80,12 @@ namespace Stock.Services.Repositories.Concrete
             }
         }
 
-        public Response<CategoryDto> Update(Guid id,CategoryDto entityDto)
+        public async Task<Response<CategoryDto>> Update(Guid id,CategoryDto entityDto)
         {
-            // var rules = new List<KeyValuePair<string,string>>
-            // {
-            //         new KeyValuePair<string, string>("Name",$"unique:Categories,{id}")
-            // };
-            //  ModelValidations.Validate(rules,entityDto,_context);
+            if(_context.Categories.FirstOrDefault(c => c.Name == entityDto.Name && c.Id != id) != null)
+                throw new RestException(HttpStatusCode.BadRequest,new {Name = "Category with this name is already exist!"});
             
-            
-            Category category = _context.Categories.Find(id);
+            var category = _context.Categories.Find(id);
             
             if (category == null)
             {
@@ -97,7 +96,7 @@ namespace Stock.Services.Repositories.Concrete
             category.Name = entityDto.Name;
             category.UpdatedAt = DateTime.Now;
             
-            var success = _context.SaveChanges() > 0;
+            var success = await _context.SaveChangesAsync() > 0;
             
             if (success)
             {
@@ -119,12 +118,8 @@ namespace Stock.Services.Repositories.Concrete
         {
             Category category = _context.Categories.Find(id);
 
-            if (category == null)
-            {
-                throw new RestException(HttpStatusCode.NotFound, new { Category = "Not found" });
-
-            }
-
+            _ = category ?? throw new RestException(HttpStatusCode.NotFound, new { Category = "Not found" });
+            
             _context.Categories.Remove(category);
             var success = _context.SaveChanges() > 0;
 

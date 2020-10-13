@@ -7,3 +7,6 @@ C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\D
 C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.dll
 C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\bin\Debug\netcoreapp3.1\Stock.Domain.dll
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\bin\Debug\netcoreapp3.1\Stock.Domain.pdb
+C:\Users\Pronet\Desktop\ownProjects\Asp\Stock.Backend\Stock.Infrastructure\obj\Debug\netcoreapp3.1\Stock.Infrastructure.csproj.CopyComplete

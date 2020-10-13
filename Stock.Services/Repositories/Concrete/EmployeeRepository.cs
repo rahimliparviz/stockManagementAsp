@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Stock.Data;
 using Stock.Domain;
@@ -11,21 +13,23 @@ using Stock.Infrastructure.Abstracts;
 using Stock.Services.DTO;
 using Stock.Services.Errors;
 using Stock.Services.Repositories.Abstract;
-using Stock.Services.Validations;
 
 namespace Stock.Services.Repositories.Concrete
 {
     public class EmployeeRepository:IEmployeeRepository
     {
-       private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
+        private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly IPhotoAccessor _photoAccessor;
 
         public EmployeeRepository(
+            UserManager<User> userManager,
             IMapper mapper,
             DataContext context,
             IPhotoAccessor photoAccessor)
         {
+            _userManager = userManager;
             _mapper = mapper;
             _context = context;
             _photoAccessor = photoAccessor;
@@ -56,13 +60,16 @@ namespace Stock.Services.Repositories.Concrete
             throw new RestException(HttpStatusCode.NotFound, new { Employee = "Not found" });
         }
 
-        public Response<EmployeeDto> Create(CreateEmployeeDto createEntityDto)
+        public async Task<Response<EmployeeDto>> Create(CreateEmployeeDto createEntityDto)
         {
+            if ( _context.Users.Any(x => x.Email == createEntityDto.Email))
+                throw new RestException(HttpStatusCode.BadRequest, new {Email = "Email already exists"});
+
+            if ( _context.Users.Any(x => x.UserName == createEntityDto.UserName))
+                throw new RestException(HttpStatusCode.BadRequest, new {UserName = "Username already exists"});
+            
             try
             {
-            
-                
-                
                 Employee employee = new Employee
                 {
                     Salary = createEntityDto.Salary,
@@ -74,14 +81,12 @@ namespace Stock.Services.Repositories.Concrete
                 User user = new User
                 {
                     Email = createEntityDto.Email,
-                    UserName = createEntityDto.Name,
+                    UserName = createEntityDto.UserName,
                     PhoneNumber = createEntityDto.Phone,
                     UserType = "employee",
                 };
 
                 employee.User = user;
-             
-                
                 
 
                 if (createEntityDto.Photo != null)
@@ -89,10 +94,21 @@ namespace Stock.Services.Repositories.Concrete
                     string path = _photoAccessor.Add("employees", createEntityDto.Photo);
                     employee.Photo = path;
                 }
-                
-                _context.Employees.Add(employee);
-                _context.SaveChanges();
 
+
+                IdentityResult result = await _userManager.CreateAsync(user, createEntityDto.Password);
+                 
+                 await _context.Employees.AddAsync(employee);
+                 await _context.SaveChangesAsync();
+
+                 if (!result.Succeeded)
+                 {
+                     throw new Exception("Problem creating user");
+
+                 }
+
+
+                
                 var returnEntityDto = _mapper.Map<Employee, EmployeeDto>(employee);
                 
                 return new Response<EmployeeDto>
@@ -115,7 +131,7 @@ namespace Stock.Services.Repositories.Concrete
             }
         }
 
-        public Response<EmployeeDto> Update(Guid id, CreateEmployeeDto entityDto)
+        public async Task<Response<EmployeeDto>> Update(Guid id, CreateEmployeeDto entityDto)
         {
             
             Employee employee = _context.Employees
@@ -123,11 +139,16 @@ namespace Stock.Services.Repositories.Concrete
                     .SingleOrDefault(e=>e.Id == id) ?? 
                                 throw new RestException(HttpStatusCode.NotFound, new { Employee = "Not found" }) 
                 ;
-            
-     
 
+
+            if (!string.IsNullOrWhiteSpace(entityDto.Password))
+            {
+                await _userManager.RemovePasswordAsync(employee.User);
+                await _userManager.AddPasswordAsync(employee.User, entityDto.Password);
+            }
+            
             employee.User.Email = entityDto.Email;
-            employee.User.UserName = entityDto.Name;
+            employee.User.UserName = entityDto.UserName;
             employee.User.PhoneNumber = entityDto.Phone;
             employee.Salary = entityDto.Salary;
             employee.JoiningDate = entityDto.JoiningDate;
@@ -149,7 +170,7 @@ namespace Stock.Services.Repositories.Concrete
                 employee.Photo = path;
             }
             
-            var success = _context.SaveChanges() > 0;
+            var success = await _context.SaveChangesAsync() > 0;
             
             if (success)
             {
@@ -158,13 +179,13 @@ namespace Stock.Services.Repositories.Concrete
                 return new Response<EmployeeDto>
                 {
                     Data = employeeDto,
-                    Message = $"Employee {employeeDto.Name} updated",
+                    Message = $"Employee {employeeDto.UserName} updated",
                     Time = DateTime.Now,
                     IsSuccess = true
                 };
             };
 
-            throw new Exception("Problem on saving category");
+            throw new Exception("Problem on saving employee");
         }
 
         public Response<EmployeeDto> Delete(Guid id)

@@ -50,12 +50,13 @@ namespace Stock.Api.Controllers
             return Ok(result);
         }
         
-        [HttpPost("stock-update")]
-        public ActionResult StockUpdate(int quantity,Guid productId)
+
+        [HttpPost("stock-update/{productId}")]
+        public ActionResult StockUpdate([FromBody]StockProductQuantityDto productQuantity,Guid productId)
         {
-             _repo.StockUpdate(quantity,productId);
+            var result =_repo.StockUpdate(productQuantity,productId);
             
-            return Ok();
+            return Ok(result);
         }
     }
 }

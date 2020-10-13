@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V8BsnJQdiMHligqV+0GA/nqtETCCoohrvj6g35NPEqyMIFJjpALurkK7YIqwPJIi9tNugmgsZPpiN9E197HGUw==",
+  "dgSpecHash": "UzzMF9jUb6tXsLsC41c+WigVKaPnrRBjlC8djtNLx/LJOV4ZmrdrRwJGU7Q5Vx5IdEykPa4U5R4Cw/JtYAoDfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Pronet\\Desktop\\ownProjects\\Asp\\Stock.Backend\\Stock.Domain\\Stock.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pronet\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.6\\microsoft.aspnetcore.cryptography.internal.3.1.6.nupkg.sha512",
     "C:\\Users\\Pronet\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.6\\microsoft.aspnetcore.cryptography.keyderivation.3.1.6.nupkg.sha512",
